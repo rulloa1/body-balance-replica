@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
@@ -7,14 +8,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-10 w-10 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-lg font-bold text-accent-foreground">BB</span>
-              </div>
-              <div>
-                <h3 className="font-bold text-lg leading-tight">Body Balance</h3>
-                <p className="text-xs opacity-90">Chiropractic & Wellness</p>
-              </div>
+            <div className="mb-4">
+              <img
+                src={logo}
+                alt="Body Balance Chiropractic & Wellness Center"
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm opacity-80">
               Your trusted partner in achieving optimal health and wellness.
