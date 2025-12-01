@@ -1,34 +1,39 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Activity, Heart, Stethoscope, Smile, Bone, Users } from "lucide-react";
+import backPainImg from "@/assets/services/back-pain.jpg";
+import massageTherapyImg from "@/assets/services/massage-therapy.jpg";
+import neckPainImg from "@/assets/services/neck-pain.jpg";
+import pregnancyCareImg from "@/assets/services/pregnancy-care.jpg";
+import chiroAdjustmentImg from "@/assets/services/chiropractic-adjustment.jpg";
+import personalInjuryImg from "@/assets/services/personal-injury.jpg";
 
 const services = [
   {
-    icon: Bone,
+    image: backPainImg,
     title: "Back Pain",
     description: "Comprehensive treatment for chronic and acute back pain relief.",
   },
   {
-    icon: Heart,
+    image: massageTherapyImg,
     title: "Massage Therapy",
     description: "Therapeutic massage to promote healing and relaxation.",
   },
   {
-    icon: Activity,
+    image: neckPainImg,
     title: "Neck Pain",
     description: "Specialized care for neck pain and cervical issues.",
   },
   {
-    icon: Smile,
+    image: pregnancyCareImg,
     title: "Pregnancy Care",
     description: "Gentle chiropractic care designed for expectant mothers.",
   },
   {
-    icon: Stethoscope,
+    image: chiroAdjustmentImg,
     title: "Chiropractic Adjustment",
     description: "Expert spinal adjustments to restore proper alignment.",
   },
   {
-    icon: Users,
+    image: personalInjuryImg,
     title: "Personal Injury",
     description: "Comprehensive care for accident and injury recovery.",
   },
@@ -49,16 +54,19 @@ export const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
-            const Icon = service.icon;
             return (
               <Card
                 key={index}
-                className="group hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer border-border"
+                className="group hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer border-border overflow-hidden"
               >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
                 <CardContent className="p-6">
-                  <div className="mb-4 inline-flex items-center justify-center w-14 h-14 rounded-full bg-accent/10 group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                    <Icon className="h-7 w-7 text-accent group-hover:text-accent-foreground" />
-                  </div>
                   <h3 className="text-xl font-bold text-primary mb-2 font-serif">
                     {service.title}
                   </h3>
