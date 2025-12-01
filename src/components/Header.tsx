@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "@/assets/logo.png";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -32,15 +33,13 @@ export const Header = () => {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="flex items-center gap-2">
-              <div className="h-12 w-12 rounded-full bg-gradient-hero flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary-foreground">BB</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-primary leading-tight">Body Balance</h1>
-                <p className="text-xs text-muted-foreground">Chiropractic & Wellness</p>
-              </div>
-            </div>
+            <a href="#home" className="flex items-center gap-3">
+              <img
+                src={logo}
+                alt="Body Balance Chiropractic & Wellness Center"
+                className="h-14 w-auto"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
