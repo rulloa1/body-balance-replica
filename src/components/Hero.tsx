@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-wellness.jpg";
@@ -42,16 +43,19 @@ export const Hero = () => {
             <Button 
               size="lg" 
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium shadow-gold hover:shadow-lg transition-all duration-300 h-14 px-8 text-base"
+              asChild
             >
-              Schedule Appointment
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/book">
+                Schedule Appointment
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
               className="border-2 border-primary-foreground/50 text-primary-foreground bg-primary-foreground/5 hover:bg-primary-foreground/20 backdrop-blur-sm h-14 px-8 text-base font-medium"
             >
-              Learn More
+              <a href="#about">Learn More</a>
             </Button>
           </div>
         </div>

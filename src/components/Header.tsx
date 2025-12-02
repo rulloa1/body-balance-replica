@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, CalendarDays } from "lucide-react";
 import logo from "@/assets/logo.png";
 import {
   NavigationMenu,
@@ -27,6 +28,8 @@ const services = [
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +38,13 @@ export const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const getHref = (section: string) => {
+    if (isHomePage) {
+      return `#${section}`;
+    }
+    return `/#${section}`;
+  };
 
   return (
     <header 
@@ -48,13 +58,13 @@ export const Header = () => {
         <div className="flex h-20 lg:h-24 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="flex items-center gap-3 group">
+            <Link to="/" className="flex items-center gap-3 group">
               <img
                 src={logo}
                 alt="Body Balance Chiropractic & Wellness Center"
                 className="h-12 lg:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -62,7 +72,7 @@ export const Header = () => {
             {["Home", "About"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={getHref(item.toLowerCase())}
                 className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
               >
                 {item}
@@ -82,7 +92,7 @@ export const Header = () => {
                         <li key={service}>
                           <NavigationMenuLink asChild>
                             <a
-                              href={`#${service.toLowerCase().replace(/\s+/g, '-')}`}
+                              href={getHref(service.toLowerCase().replace(/\s+/g, '-'))}
                               className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all hover:bg-secondary/80 group"
                             >
                               <div className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
@@ -101,7 +111,7 @@ export const Header = () => {
             {["Blog", "Contact", "Meet The Team"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getHref(item.toLowerCase().replace(/\s+/g, '-'))}
                 className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
               >
                 {item}
@@ -129,7 +139,17 @@ export const Header = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
+            <Button 
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-medium"
+              asChild
+            >
+              <Link to="/book">
+                <CalendarDays className="w-4 h-4 mr-2" />
+                Book Now
+              </Link>
+            </Button>
             <Button 
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium shadow-gold hover:shadow-lg transition-all duration-300"
             >
@@ -153,8 +173,9 @@ export const Header = () => {
             {["Home", "About"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={getHref(item.toLowerCase())}
                 className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {item}
               </a>
@@ -165,8 +186,9 @@ export const Header = () => {
                 {services.map((service) => (
                   <a
                     key={service}
-                    href={`#${service.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={getHref(service.toLowerCase().replace(/\s+/g, '-'))}
                     className="block py-1.5 text-sm text-muted-foreground hover:text-accent transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {service}
                   </a>
@@ -176,8 +198,9 @@ export const Header = () => {
             {["Blog", "Contact", "Meet The Team"].map((item) => (
               <a
                 key={item}
-                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getHref(item.toLowerCase().replace(/\s+/g, '-'))}
                 className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 {item}
               </a>
@@ -198,7 +221,17 @@ export const Header = () => {
             >
               Forms
             </a>
-            <div className="pt-4">
+            <div className="pt-4 space-y-3">
+              <Button 
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
+                asChild
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Link to="/book">
+                  <CalendarDays className="w-4 h-4 mr-2" />
+                  Book Appointment
+                </Link>
+              </Button>
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
                 <Phone className="w-4 h-4 mr-2" />
                 Call (281) 890-5599
