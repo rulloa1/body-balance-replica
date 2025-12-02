@@ -108,7 +108,7 @@ export const Header = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {["Blog", "Contact", "Meet The Team"].map((item) => (
+            {["Blog", "Contact"].map((item) => (
               <a
                 key={item}
                 href={getHref(item.toLowerCase().replace(/\s+/g, '-'))}
@@ -118,6 +118,15 @@ export const Header = () => {
                 <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </a>
             ))}
+            <a
+              href="https://bodybalancehealth.net/team.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+            >
+              Meet The Team
+              <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
             <a
               href="https://bodybalancefoundation.com/"
               target="_blank"
@@ -195,7 +204,7 @@ export const Header = () => {
                 ))}
               </div>
             </div>
-            {["Blog", "Contact", "Meet The Team"].map((item) => (
+            {["Blog", "Contact"].map((item) => (
               <a
                 key={item}
                 href={getHref(item.toLowerCase().replace(/\s+/g, '-'))}
@@ -205,6 +214,14 @@ export const Header = () => {
                 {item}
               </a>
             ))}
+            <a
+              href="https://bodybalancehealth.net/team.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+            >
+              Meet The Team
+            </a>
             <a
               href="https://bodybalancefoundation.com/"
               target="_blank"
