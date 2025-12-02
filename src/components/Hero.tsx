@@ -1,53 +1,64 @@
 import { Button } from "@/components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, MapPin } from "lucide-react";
 import heroImage from "@/assets/hero-wellness.jpg";
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
+    <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
           alt="Active wellness lifestyle"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
       </div>
+      
+      {/* Decorative Elements */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-2xl" />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
-          <h2 className="text-5xl lg:text-7xl font-bold text-primary mb-6 leading-tight">
-            Body Balance
-            <br />
-            <span className="text-4xl lg:text-6xl">Chiropractic &</span>
-            <br />
-            <span className="text-4xl lg:text-6xl">Wellness Center</span>
-          </h2>
-          
-          <div className="mb-8">
-            <p className="text-lg text-muted-foreground mb-2">Chiropractor located in</p>
-            <h3 className="text-2xl font-serif text-accent font-bold">Houston, Texas</h3>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full mb-8 animate-fade-up">
+            <MapPin className="w-4 h-4 text-accent" />
+            <span className="text-sm font-medium text-primary-foreground/90">Houston, Texas</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-serif text-primary-foreground mb-6 leading-[1.1] animate-fade-up delay-100">
+            Body Balance
+            <span className="block text-accent mt-2">Chiropractic &</span>
+            <span className="block">Wellness Center</span>
+          </h1>
+          
+          <p className="text-lg lg:text-xl text-primary-foreground/80 mb-10 max-w-lg leading-relaxed animate-fade-up delay-200">
+            Experience exceptional care with Dr. Shawn Taher. Taking pain out of life and putting balance in.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-up delay-300">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium shadow-gold hover:shadow-lg transition-all duration-300 h-14 px-8 text-base"
+            >
               Schedule Appointment
-              <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-primary-foreground/50 text-primary-foreground bg-primary-foreground/5 hover:bg-primary-foreground/20 backdrop-blur-sm h-14 px-8 text-base font-medium"
+            >
               Learn More
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Carousel Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        <button className="w-3 h-3 rounded-full bg-primary" aria-label="Slide 1" />
-        <button className="w-3 h-3 rounded-full bg-primary/30" aria-label="Slide 2" />
-        <button className="w-3 h-3 rounded-full bg-primary/30" aria-label="Slide 3" />
-        <button className="w-3 h-3 rounded-full bg-primary/30" aria-label="Slide 4" />
-      </div>
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

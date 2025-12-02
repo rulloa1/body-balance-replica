@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 import {
   NavigationMenu,
@@ -26,45 +26,68 @@ const services = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+    <header 
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled 
+          ? "bg-background/98 backdrop-blur-md shadow-sm border-b border-border/50" 
+          : "bg-transparent"
+      }`}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 lg:h-24 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="flex items-center gap-3">
+            <a href="#home" className="flex items-center gap-3 group">
               <img
                 src={logo}
                 alt="Body Balance Chiropractic & Wellness Center"
-                className="h-14 w-auto"
+                className="h-12 lg:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <a href="#home" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Home
-            </a>
-            <a href="#about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              About
-            </a>
+          <nav className="hidden lg:flex items-center gap-1">
+            {["Home", "About"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+              >
+                {item}
+                <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </a>
+            ))}
             
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-sm font-medium">Services</NavigationMenuTrigger>
+                  <NavigationMenuTrigger className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
+                    Services
+                  </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    <ul className="grid w-[400px] gap-1 p-4 md:w-[500px] md:grid-cols-2 bg-card border border-border/50 rounded-lg shadow-elevated">
                       {services.map((service) => (
                         <li key={service}>
                           <NavigationMenuLink asChild>
                             <a
                               href={`#${service.toLowerCase().replace(/\s+/g, '-')}`}
-                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-all hover:bg-secondary/80 group"
                             >
-                              <div className="text-sm font-medium leading-none">{service}</div>
+                              <div className="text-sm font-medium text-foreground group-hover:text-accent transition-colors">
+                                {service}
+                              </div>
                             </a>
                           </NavigationMenuLink>
                         </li>
@@ -75,27 +98,31 @@ export const Header = () => {
               </NavigationMenuList>
             </NavigationMenu>
 
-            <a href="#blog" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Blog
-            </a>
-            <a href="#contact" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Contact
-            </a>
-            <a href="#team" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Meet The Team
-            </a>
+            {["Blog", "Contact", "Meet The Team"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+              >
+                {item}
+                <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              </a>
+            ))}
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              Call us (281-890-5599)
+          <div className="hidden lg:flex items-center gap-4">
+            <Button 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium shadow-gold hover:shadow-lg transition-all duration-300"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              (281) 890-5599
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 rounded-md hover:bg-secondary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -104,29 +131,45 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-4 border-t border-border">
-            <a href="#home" className="block py-2 text-sm font-medium">Home</a>
-            <a href="#about" className="block py-2 text-sm font-medium">About</a>
-            <div className="py-2">
-              <p className="text-sm font-medium mb-2">Services</p>
-              <div className="pl-4 space-y-2">
+          <div className="lg:hidden py-6 space-y-1 border-t border-border/50 animate-fade-in">
+            {["Home", "About"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <div className="py-3 px-2">
+              <p className="text-sm font-semibold text-foreground mb-3">Services</p>
+              <div className="pl-4 space-y-2 border-l-2 border-accent/30">
                 {services.map((service) => (
                   <a
                     key={service}
                     href={`#${service.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="block py-1 text-sm text-muted-foreground"
+                    className="block py-1.5 text-sm text-muted-foreground hover:text-accent transition-colors"
                   >
                     {service}
                   </a>
                 ))}
               </div>
             </div>
-            <a href="#blog" className="block py-2 text-sm font-medium">Blog</a>
-            <a href="#contact" className="block py-2 text-sm font-medium">Contact</a>
-            <a href="#team" className="block py-2 text-sm font-medium">Meet The Team</a>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-              Call us (281-890-5599)
-            </Button>
+            {["Blog", "Contact", "Meet The Team"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+            <div className="pt-4">
+              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
+                <Phone className="w-4 h-4 mr-2" />
+                Call (281) 890-5599
+              </Button>
+            </div>
           </div>
         )}
       </div>
