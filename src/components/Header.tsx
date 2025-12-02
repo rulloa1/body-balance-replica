@@ -108,6 +108,15 @@ export const Header = () => {
                 <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </a>
             ))}
+            <a
+              href="https://bodybalancefoundation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors relative group"
+            >
+              Foundation
+              <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </a>
           </nav>
 
           {/* CTA Button */}
@@ -164,6 +173,14 @@ export const Header = () => {
                 {item}
               </a>
             ))}
+            <a
+              href="https://bodybalancefoundation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-3 px-2 text-sm font-medium hover:text-accent transition-colors"
+            >
+              Foundation
+            </a>
             <div className="pt-4">
               <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
                 <Phone className="w-4 h-4 mr-2" />
