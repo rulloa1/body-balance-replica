@@ -1,78 +1,139 @@
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
+
+const footerLinks = {
+  quickLinks: [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Services", href: "#services" },
+    { label: "Blog", href: "#blog" },
+    { label: "Contact", href: "#contact" },
+  ],
+  services: [
+    { label: "Back Pain", href: "#back-pain" },
+    { label: "Massage Therapy", href: "#massage-therapy" },
+    { label: "Neck Pain", href: "#neck-pain" },
+    { label: "Pregnancy Care", href: "#pregnancy-care" },
+    { label: "Chiropractic Adjustment", href: "#chiropractic-adjustment" },
+  ],
+};
+
+const socialLinks = [
+  { icon: Facebook, href: "#", label: "Facebook" },
+  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+];
 
 export const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div>
-            <div className="mb-4">
-              <img
-                src={logo}
-                alt="Body Balance Chiropractic & Wellness Center"
-                className="h-12 w-auto brightness-0 invert"
-              />
-            </div>
-            <p className="text-sm opacity-80">
-              Your trusted partner in achieving optimal health and wellness.
+    <footer className="bg-primary text-primary-foreground">
+      {/* Main Footer */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <img
+              src={logo}
+              alt="Body Balance Chiropractic & Wellness Center"
+              className="h-12 w-auto brightness-0 invert mb-6"
+            />
+            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
+              Your trusted partner in achieving optimal health and wellness through holistic chiropractic care.
             </p>
+            <div className="flex gap-3">
+              {socialLinks.map(({ icon: Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent transition-colors group"
+                >
+                  <Icon className="h-4 w-4 text-primary-foreground/70 group-hover:text-accent-foreground" />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#home" className="opacity-80 hover:opacity-100 transition-opacity">Home</a></li>
-              <li><a href="#about" className="opacity-80 hover:opacity-100 transition-opacity">About</a></li>
-              <li><a href="#services" className="opacity-80 hover:opacity-100 transition-opacity">Services</a></li>
-              <li><a href="#blog" className="opacity-80 hover:opacity-100 transition-opacity">Blog</a></li>
+            <h4 className="font-serif text-lg mb-6">Quick Links</h4>
+            <ul className="space-y-3">
+              {footerLinks.quickLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-primary-foreground/70 hover:text-accent text-sm transition-colors"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-bold mb-4">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#back-pain" className="opacity-80 hover:opacity-100 transition-opacity">Back Pain</a></li>
-              <li><a href="#massage-therapy" className="opacity-80 hover:opacity-100 transition-opacity">Massage Therapy</a></li>
-              <li><a href="#neck-pain" className="opacity-80 hover:opacity-100 transition-opacity">Neck Pain</a></li>
-              <li><a href="#pregnancy-care" className="opacity-80 hover:opacity-100 transition-opacity">Pregnancy Care</a></li>
+            <h4 className="font-serif text-lg mb-6">Services</h4>
+            <ul className="space-y-3">
+              {footerLinks.services.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-primary-foreground/70 hover:text-accent text-sm transition-colors"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Contact Info */}
           <div>
-            <h4 className="font-bold mb-4">Contact Us</h4>
-            <ul className="space-y-2 text-sm">
-              <li className="opacity-80">(281) 890-5599</li>
-              <li className="opacity-80">info@bodybalancehealth.net</li>
-              <li className="opacity-80">Houston, Texas</li>
+            <h4 className="font-serif text-lg mb-6">Contact Us</h4>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="tel:2818905599"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent text-sm transition-colors"
+                >
+                  <Phone className="h-4 w-4 text-accent" />
+                  (281) 890-5599
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@bodybalancehealth.net"
+                  className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent text-sm transition-colors"
+                >
+                  <Mail className="h-4 w-4 text-accent" />
+                  info@bodybalancehealth.net
+                </a>
+              </li>
+              <li>
+                <div className="flex items-center gap-3 text-primary-foreground/70 text-sm">
+                  <MapPin className="h-4 w-4 text-accent" />
+                  Houston, Texas
+                </div>
+              </li>
             </ul>
-            <div className="flex gap-4 mt-4">
-              <a href="#" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="opacity-80 hover:opacity-100 transition-opacity" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </div>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-primary-foreground/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">
-            <p>&copy; 2025 Body Balance Chiropractic & Wellness Center. All rights reserved.</p>
-            <div className="flex gap-4">
-              <a href="#privacy" className="hover:opacity-100 transition-opacity">Privacy Policy</a>
-              <a href="#terms" className="hover:opacity-100 transition-opacity">Terms of Service</a>
+      {/* Bottom Bar */}
+      <div className="border-t border-primary-foreground/10">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
+            <p>© 2025 Body Balance Chiropractic & Wellness Center. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#privacy" className="hover:text-accent transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#terms" className="hover:text-accent transition-colors">
+                Terms of Service
+              </a>
             </div>
           </div>
         </div>
