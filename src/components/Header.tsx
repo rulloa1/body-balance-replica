@@ -161,9 +161,12 @@ export const Header = () => {
             </Button>
             <Button 
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium shadow-gold hover:shadow-lg transition-all duration-300"
+              asChild
             >
+              <a href="tel:+12819841247">
               <Phone className="w-4 h-4 mr-2" />
-              (281) 890-5599
+              (281) 984-1247
+            </a>
             </Button>
           </div>
 
@@ -249,9 +252,11 @@ export const Header = () => {
                   Book Appointment
                 </Link>
               </Button>
-              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium">
-                <Phone className="w-4 h-4 mr-2" />
-                Call (281) 890-5599
+              <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium" asChild>
+                <a href="tel:+12819841247">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Call (281) 984-1247
+                </a>
               </Button>
             </div>
           </div>
