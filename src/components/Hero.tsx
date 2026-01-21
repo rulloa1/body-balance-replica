@@ -1,20 +1,24 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-wellness.jpg";
+import heroVideo from "@/assets/hero-video.mp4";
 
 export const Hero = () => {
   return (
     <section id="home" className="relative min-h-[85vh] flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt="Active wellness lifestyle"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/75 to-primary/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
       </div>
       
       {/* Decorative Elements */}
