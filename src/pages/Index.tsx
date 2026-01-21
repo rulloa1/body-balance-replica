@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { TrustBadges } from "@/components/TrustBadges";
 import { Services } from "@/components/Services";
 import { About } from "@/components/About";
+import { InsuranceLogos } from "@/components/InsuranceLogos";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -15,6 +16,7 @@ const Index = () => {
         <TrustBadges />
         <Services />
         <About />
+        <InsuranceLogos />
         <Contact />
       </main>
       <Footer />
