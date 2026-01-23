@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Send, Loader2 } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   {
@@ -33,6 +35,54 @@ const contactInfo = [
 ];
 
 export const Contact = () => {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // REPLACE THIS WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMlEBhwHrobk2MZ3HAIwhQmWB8BlVYdPxywjIYb2QCPtCiY1kmnQDOvmN76aR86v5q/exec";
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      toast({
+        title: "Message Sent",
+        description: "We've received your message and will get back to you shortly.",
+      });
+
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding bg-gradient-subtle">
       <div className="container mx-auto px-4">
@@ -116,13 +166,17 @@ export const Contact = () => {
                   Fill out the form below and we'll get back to you shortly.
                 </p>
                 
-                <form className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-medium text-foreground mb-2">
                         Full Name
                       </label>
                       <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
                         placeholder="John Doe"
                         className="h-12 bg-secondary/50 border-border/50 focus:border-accent"
                       />
@@ -132,7 +186,11 @@ export const Contact = () => {
                         Phone Number
                       </label>
                       <Input
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
                         type="tel"
+                        required
                         placeholder="(123) 456-7890"
                         className="h-12 bg-secondary/50 border-border/50 focus:border-accent"
                       />
@@ -143,7 +201,11 @@ export const Contact = () => {
                       Email Address
                     </label>
                     <Input
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       type="email"
+                      required
                       placeholder="john@example.com"
                       className="h-12 bg-secondary/50 border-border/50 focus:border-accent"
                     />
@@ -153,16 +215,25 @@ export const Contact = () => {
                       Your Message
                     </label>
                     <Textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
                       placeholder="Tell us how we can help you..."
                       className="min-h-[140px] bg-secondary/50 border-border/50 focus:border-accent resize-none"
                     />
                   </div>
                   <Button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium h-12 shadow-gold hover:shadow-lg transition-all duration-300"
                   >
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Message
+                    {isSubmitting ? (
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4 mr-2" />
+                    )}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </CardContent>
