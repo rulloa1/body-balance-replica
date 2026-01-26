@@ -28,7 +28,7 @@ export const InsuranceLogos = () => {
               We Accept Most Major Insurance Plans
             </h2>
             <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-              Making quality chiropractic care accessible and affordable for everyone
+              Making quality health and wellness care accessible and affordable for everyone
             </p>
           </div>
         </ScrollReveal>

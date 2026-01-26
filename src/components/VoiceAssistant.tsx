@@ -18,8 +18,8 @@ const VoiceAssistant = () => {
           messages: [
             {
               role: "system",
-              content: `You are the AI assistant for Body Balance Health. 
-              Your goal is to help users book appointments.
+              content: `You are the AI assistant for Roy's Company. 
+              Your goal is to help users with our services.
               
               If a user calls after hours (5 PM - 9 AM) or if you cannot help them immediately, 
               OFFER to:
@@ -31,7 +31,7 @@ const VoiceAssistant = () => {
             }
           ]
         },
-        firstMessage: "Hello! Welcome to Body Balance Health. How can I help you book an appointment today?"
+        firstMessage: "Hello! Welcome to Roy's Company. How can I help you today?"
       }}
     />
   );

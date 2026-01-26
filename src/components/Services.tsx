@@ -55,7 +55,7 @@ export const Services = () => {
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-8 leading-relaxed">
-              Comprehensive chiropractic and wellness services designed to help you achieve optimal health and lasting well-being.
+              Comprehensive health and wellness services designed to help you achieve optimal health and lasting well-being.
             </p>
           </div>
         </ScrollReveal>

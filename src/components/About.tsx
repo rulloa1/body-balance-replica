@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import aboutImage from "@/assets/about-treatment.jpg";
 
 const highlights = [
-  { icon: Award, label: "Top Rated", value: "Chiropractor" },
+  { icon: Award, label: "Top Rated", value: "Wellness Pro" },
   { icon: Users, label: "Patients", value: "10,000+" },
   { icon: Heart, label: "Years", value: "15+" },
 ];
@@ -23,7 +23,7 @@ export const About = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-elevated">
                   <img
                     src={aboutImage}
-                    alt="Dr. Shawn Taher - Chiropractic care specialist"
+                    alt="Roy's Company - Wellness care specialist"
                     className="w-full h-[500px] object-cover"
                   />
                 </div>
@@ -51,17 +51,17 @@ export const About = () => {
                 About Us
               </span>
               <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-6 leading-tight">
-                Body Balance Chiropractic & Wellness Center
+                Roy's Company
               </h2>
               
               <div className="w-16 h-1 bg-gradient-gold rounded-full mb-8" />
 
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  At Body Balance Chiropractic & Wellness Center in Houston, Texas, led by <strong className="text-foreground">Dr. Shawn Taher, DC</strong>, we offer a multidisciplinary and holistic approach to health care, giving patients an exceptional experience when they walk through the door.
+                  At Roy's Company in Houston, Texas, led by <strong className="text-foreground">Roy and his expert team</strong>, we offer a multidisciplinary and holistic approach to health care, giving patients an exceptional experience when they walk through the door.
                 </p>
                 <p>
-                  Voted top chiropractor by Houstonians, Dr. Taher has earned a solid reputation for providing patients with superior outcomes. His effective treatments focus on the root cause of each patient's issue, optimizing their balance to ultimately eliminate pain.
+                  Voted top wellness provider by Houstonians, Roy has earned a solid reputation for providing patients with superior outcomes. His effective treatments focus on the root cause of each patient's issue, optimizing their balance to ultimately eliminate pain.
                 </p>
                 <p className="text-lg font-medium text-foreground italic border-l-4 border-accent pl-4">
                   "Taking pain out of life and putting balance in."

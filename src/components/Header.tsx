@@ -61,7 +61,7 @@ export const Header = () => {
             <Link to="/" className="flex items-center gap-3 group">
               <img
                 src={logo}
-                alt="Body Balance Chiropractic & Wellness Center"
+                alt="Roy's Company"
                 className="h-12 lg:h-14 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>

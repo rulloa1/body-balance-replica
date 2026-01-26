@@ -35,11 +35,11 @@ export const Footer = () => {
           <div className="lg:col-span-1">
             <img
               src={logo}
-              alt="Body Balance Chiropractic & Wellness Center"
+              alt="Roy's Company"
               className="h-12 w-auto brightness-0 invert mb-6"
             />
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Your trusted partner in achieving optimal health and wellness through holistic chiropractic care.
+              Your trusted partner for quality services. Professional, reliable, and dedicated to excellence.
             </p>
             <div className="flex gap-3">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -104,11 +104,11 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:info@bodybalancehealth.net"
+                  href="mailto:contact@royscompany.com"
                   className="flex items-center gap-3 text-primary-foreground/70 hover:text-accent text-sm transition-colors"
                 >
                   <Mail className="h-4 w-4 text-accent" />
-                  info@bodybalancehealth.net
+                  contact@royscompany.com
                 </a>
               </li>
               <li>
@@ -126,7 +126,7 @@ export const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-primary-foreground/60">
-            <p>© 2025 Body Balance Chiropractic & Wellness Center. All rights reserved.</p>
+            <p>© 2025 Roy's Company. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#privacy" className="hover:text-accent transition-colors">
                 Privacy Policy

@@ -40,13 +40,13 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-serif text-primary-foreground mb-8 leading-[1.05] animate-fade-up delay-100">
-            Body Balance
-            <span className="block text-accent mt-3 drop-shadow-[0_2px_20px_hsl(var(--accent)/0.3)]">Chiropractic &</span>
-            <span className="block">Wellness Center</span>
+            Roy's Company
+            <span className="block text-accent mt-3 drop-shadow-[0_2px_20px_hsl(var(--accent)/0.3)]">Reliable &</span>
+            <span className="block">Professional Services</span>
           </h1>
           
           <p className="text-lg lg:text-xl text-primary-foreground/85 mb-12 max-w-xl leading-relaxed animate-fade-up delay-200 font-light">
-            Experience exceptional care with Dr. Shawn Taher. Taking pain out of life and putting balance in.
+            Your trusted partner for home improvement, automotive, and more. Quality service you can depend on.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 animate-fade-up delay-300">
