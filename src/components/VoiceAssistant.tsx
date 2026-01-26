@@ -10,6 +10,10 @@ const VoiceAssistant = () => {
       buttonColor="#3B82F6"
       size="compact" // Fixes the "too big" issue
       assistantOverrides={{
+        voice: {
+          provider: "deepgram",
+          voiceId: "asteria", // 'asteria' is a friendly, professional female voice
+        },
         model: {
           messages: [
             {
