@@ -27,12 +27,12 @@ const services = [
   {
     image: pregnancyCareImg,
     title: "Pregnancy Care",
-    description: "Gentle chiropractic care designed specifically for expectant mothers.",
+    description: "Gentle wellness care designed specifically for expectant mothers.",
   },
   {
     image: chiroAdjustmentImg,
-    title: "Chiropractic Adjustment",
-    description: "Expert spinal adjustments to restore proper alignment and function.",
+    title: "Wellness Adjustment",
+    description: "Expert adjustments to restore proper alignment and function.",
   },
   {
     image: personalInjuryImg,
