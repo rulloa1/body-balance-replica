@@ -12,26 +12,26 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 const testimonials = [
   {
     name: "Sarah Jenkins",
-    role: "Patient",
-    content: "Dr. Taher and his team are absolutely amazing. I came in with severe back pain and after just a few sessions, I feel like a new person. Highly recommended!",
+    role: "Client",
+    content: "Roy and his team are absolutely amazing. I came in with severe back pain and after just a few sessions, I feel like a new person. Highly recommended!",
     rating: 5,
   },
   {
     name: "Michael Chen",
     role: "Athlete",
-    content: "As a runner, I struggle with hip issues. Body Balance has helped me maintain my performance and recover faster. The personalized care is outstanding.",
+    content: "As a runner, I struggle with hip issues. Roy's Company has helped me maintain my performance and recover faster. The personalized care is outstanding.",
     rating: 5,
   },
   {
     name: "Emily Rodriguez",
-    role: "Patient",
-    content: "The best chiropractic experience I've ever had. The staff is friendly, the office is beautiful, and the treatments are effective. Thank you Body Balance!",
+    role: "Client",
+    content: "The best wellness experience I've ever had. The staff is friendly, the facility is beautiful, and the treatments are effective. Thank you Roy's Company!",
     rating: 5,
   },
   {
     name: "David Thompson",
-    role: "Patient",
-    content: "I was skeptical about chiropractic care, but Dr. Taher changed my mind. He took the time to explain everything and the results speak for themselves.",
+    role: "Client",
+    content: "I was skeptical about wellness care, but Roy changed my mind. He took the time to explain everything and the results speak for themselves.",
     rating: 5,
   },
 ];

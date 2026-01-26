@@ -152,7 +152,7 @@ export const BookingForm = () => {
           </div>
           <h2 className="text-3xl font-serif text-primary mb-4">Appointment Confirmed!</h2>
           <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-            Thank you for booking with Body Balance Chiropractic & Wellness. 
+            Thank you for booking with Roy's Company. 
             We've received your appointment request and will contact you shortly to confirm.
           </p>
           <div className="bg-secondary/50 rounded-lg p-6 max-w-sm mx-auto mb-8">

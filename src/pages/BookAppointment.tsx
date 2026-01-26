@@ -9,8 +9,8 @@ const BookAppointment = () => {
   return (
     <>
       <Helmet>
-        <title>Book Appointment | Body Balance Chiropractic & Wellness</title>
-        <meta name="description" content="Schedule your chiropractic appointment online. Book a consultation for back pain, neck pain, massage therapy, and more at Body Balance Health." />
+        <title>Book Appointment | Roy's Company</title>
+        <meta name="description" content="Schedule your wellness appointment online. Book a consultation for our health services at Roy's Company." />
       </Helmet>
       
       <Header />
