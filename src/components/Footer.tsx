@@ -14,7 +14,7 @@ const footerLinks = {
     { label: "Massage Therapy", href: "#massage-therapy" },
     { label: "Neck Pain", href: "#neck-pain" },
     { label: "Pregnancy Care", href: "#pregnancy-care" },
-    { label: "Chiropractic Adjustment", href: "#chiropractic-adjustment" },
+    { label: "Wellness Adjustment", href: "#wellness-adjustment" },
   ],
 };
 

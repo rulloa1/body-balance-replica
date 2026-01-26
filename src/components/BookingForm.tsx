@@ -24,7 +24,7 @@ const services = [
   "Neck Pain Treatment",
   "Massage Therapy",
   "Pregnancy Care",
-  "Chiropractic Adjustment",
+  "Wellness Adjustment",
   "Personal Injury",
   "Initial Consultation",
 ];
